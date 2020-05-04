@@ -1,29 +1,11 @@
-import java.nio.file.Path
+package com.artemisSoftware
 
 interface Logger {
 
     fun debug (msg: String)
     fun warn (msg: String)
+    fun info (msg: String){
+        warn(msg)
+    }
 }
 
-class FileLogger(val file: Path) : Logger{
-    override fun debug(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun warn(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-}
-
-class ConsoleLogger(val file: Path) : Logger{
-    override fun debug(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun warn(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-}

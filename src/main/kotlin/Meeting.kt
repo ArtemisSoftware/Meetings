@@ -1,5 +1,4 @@
 package com.artemisSoftware
-import Logger
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -11,7 +10,7 @@ open class Meeting (val meetingName: String, open val location: Location, val lo
 
     fun addParticipant(participant : Participant){
 
-        //logger.debug("Participant added")
+        logger.info("Participant added")
 
         if(verifyParticipant(participant) == true) {
             println("Added: ${participant.participantName}")
