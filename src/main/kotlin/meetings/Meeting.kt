@@ -4,13 +4,17 @@ open class Meeting (val meetingName: String, open val location: Location, val lo
 
 
     open val locationName = ""
+    private val _participants = mutableListOf<Participant>()
 
+    val participants: List<Participant>
+        get() = _participants
 
     fun addParticipant(participant : Participant){
 
         logger.info("Participant added")
 
         if(verifyParticipant(participant) == true) {
+            _participants.add(participant)
             println("Added: ${participant.participantName}")
         }
     }
