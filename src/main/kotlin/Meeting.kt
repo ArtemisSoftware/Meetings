@@ -1,7 +1,8 @@
 
-class Meeting (val meetingName: String){
+class Meeting (val meetingName: String, val location: Location = Location("")){
 
     private val logger = Logger()
+
 
 
     fun addParticipant(participant : Participant){
@@ -16,4 +17,11 @@ class Meeting (val meetingName: String){
         println("Try to verify")
         return true
     }
+}
+
+
+class Location (val address : String){
+
+
+
 }
