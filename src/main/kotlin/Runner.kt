@@ -6,8 +6,7 @@ fun main(){
 
     println("Created: $meeting with name ${meeting.meetingName} and  at ${meeting.location}")
 
-    val name = Name()
-    name.name = "The void"
+    val name = Name("The void")
 
     val participant = Participant(name, "thevoid@meeting.com")
 
