@@ -15,7 +15,7 @@ fun main(){
 
 
     val review = PersonalReview("Review the effort", Participant(Name("The life"), "thelife@meeting.com"), listOf(), Location("The dungeon of despair"))
-
-
     println("Created PersonalReview: $review with name ${review.meetingName} and  at ${review.location}")
+
+    review.closeReview()
 }
