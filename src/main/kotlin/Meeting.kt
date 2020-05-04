@@ -1,5 +1,6 @@
+import com.rsk.Room
 
-open class Meeting (val meetingName: String, open val location: Location = Location()){
+open class Meeting (val meetingName: String, open val location: Location){
 
     private val logger = Logger()
 
