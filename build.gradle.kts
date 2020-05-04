@@ -11,6 +11,11 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+
+
+    implementation ("org.jetbrains.kotlin:kotlin-reflect:1.3.71")
+    implementation ("log4j:log4j:1.2.17")
+    //implementation (kotlin("log4j:log4j:1.2.17""))
 }
 
 tasks {
