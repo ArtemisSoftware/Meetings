@@ -1,5 +1,5 @@
 
-class Meeting (val meetingName: String, val location: Location = Location("")){
+open class Meeting (val meetingName: String, val location: Location = Location("")){
 
     private val logger = Logger()
 
@@ -19,9 +19,5 @@ class Meeting (val meetingName: String, val location: Location = Location("")){
     }
 }
 
-
-class Location (val address : String){
-
-
-
-}
+class PersonalReview(meetingName: String, val employee: Participant, reviewers: List<Participant>, location : Location = Location("The darklight room"))
+    : Meeting(meetingName, location)
