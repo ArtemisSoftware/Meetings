@@ -8,7 +8,7 @@ class Meeting {
     fun addParticipant(participant : Participant){
 
         if(verifyParticipant(participant) == true) {
-            println("Added: ${participant.name}")
+            println("Added: ${participant.participantName}")
         }
     }
 
@@ -23,7 +23,21 @@ class Meeting {
 
 class Participant{
 
-    var name = ""
+    var name : Name = Name()
     var email = ""
 
+    val participantName
+        get() = name.name
+
+    val canonicalEmail: String
+        get() = email.toUpperCase()
+}
+
+class Name {
+
+    var name : String = ""
+        set(value : String){
+            if(value.isNullOrBlank()) throw  IllegalArgumentException()
+            field = value
+        }
 }

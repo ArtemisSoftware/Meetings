@@ -7,7 +7,12 @@ fun main(){
     println("Created: $meeting")
 
     val participant = Participant()
-    participant.name = "The void"
+
+    val name = Name()
+    name.name = "The void"
+    name.name = ""
+
+    participant.name = name
     participant.email ="thevoid@meeting.com"
 
     meeting.addParticipant(participant)
