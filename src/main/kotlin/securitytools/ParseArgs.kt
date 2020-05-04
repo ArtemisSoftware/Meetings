@@ -1,4 +1,4 @@
-
+package securitytools
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -15,7 +15,7 @@ object ParseArgs {
 
     private val strArguments = mutableMapOf<String, Any>()
 
-    // called from the 'main' code to initialize both the maps with
+    // called from the 'securitytools.main' code to initialize both the maps with
     // the keys used on the command line, the names of the arguments they
     // map to and the default values they should have
     // "-filter" -> "filter" -> ""
