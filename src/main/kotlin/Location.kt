@@ -1,6 +1,6 @@
 open class Location
 
-class Room(roomName : String) : Location()
+class Room(val roomName : String) : Location()
 
 class TheGateringAddress(val firstLine: String,
                 val secondLine: String,
