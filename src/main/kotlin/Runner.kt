@@ -1,7 +1,7 @@
 
 fun main(){
 
-    val meeting = Meeting("The Gathering of Dark Power", Location("Lair of the empty darkness"))
+    val meeting = Meeting("The Gathering of Dark Power", TheGateringAddress("The Lair", "Empty darkness", "The NoSpark", "Blight", "4dark"))
 
 
     println("Created Meeting: $meeting with name ${meeting.meetingName} and  at ${meeting.location}")
@@ -14,7 +14,7 @@ fun main(){
 
 
 
-    val review = PersonalReview("Review the effort", Participant(Name("The life"), "thelife@meeting.com"), listOf(), Location("The dungeon of despair"))
+    val review = PersonalReview("Review the effort", Participant(Name("The life"), "thelife@meeting.com"), listOf(), Room("The dungeon of despair"))
     println("Created PersonalReview: $review with name ${review.meetingName} and  at ${review.location}")
 
     review.closeReview()
