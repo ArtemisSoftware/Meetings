@@ -18,7 +18,7 @@ class FileLogger(val file: Path) : Logger, Message{
         }
 
         override fun info(msg: String) {
-            super<Message>.info(msg)
+            super<Message>.info()
             super<Logger>.info(msg)
         }
 }

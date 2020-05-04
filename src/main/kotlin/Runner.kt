@@ -1,6 +1,4 @@
 package com.artemisSoftware
-import FileLogger
-import Logger
 import java.nio.file.Paths
 
 fun main(){
