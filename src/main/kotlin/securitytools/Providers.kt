@@ -7,9 +7,16 @@ import java.security.Security
 class ProviderDetails(val provideName: String, val name: String)
 
 
+
 class Providers(private val outputStrategy : OutputStrategy) {
 
     private val filter: String by argument()
+
+    class Help {
+        fun help() {
+            println("providers: java SecurityToolsKt  [-op 'providers']  [-f filename]  [-d destfilename] [-p provider] [-a algorithm] [-o] [-encode]")
+        }
+    }
 
     fun run(){
         listAllProviders()
