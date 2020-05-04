@@ -126,7 +126,7 @@ fun main(args: Array<String>) {
         }
 
         "providers" -> {
-            Providers().run()
+            Providers(ConsoleOutputStrategy()).run()
         }
     }
 }
