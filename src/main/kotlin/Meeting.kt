@@ -1,9 +1,8 @@
 
-class Meeting {
+class Meeting (val meetingName: String){
 
     private val logger = Logger()
 
-    val meetingName: String = ""
 
     fun addParticipant(participant : Participant){
 
@@ -17,27 +16,4 @@ class Meeting {
         println("Try to verify")
         return true
     }
-
-
-}
-
-class Participant{
-
-    var name : Name = Name()
-    var email = ""
-
-    val participantName
-        get() = name.name
-
-    val canonicalEmail: String
-        get() = email.toUpperCase()
-}
-
-class Name {
-
-    var name : String = ""
-        set(value : String){
-            if(value.isNullOrBlank()) throw  IllegalArgumentException()
-            field = value
-        }
 }

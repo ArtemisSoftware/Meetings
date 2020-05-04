@@ -1,19 +1,17 @@
 
 fun main(){
 
-    val meeting = Meeting()
+    val meeting = Meeting("The Gathering of Dark Power")
 
 
-    println("Created: $meeting")
-
-    val participant = Participant()
+    println("Created: $meeting with name ${meeting.meetingName}")
 
     val name = Name()
     name.name = "The void"
-    name.name = ""
 
-    participant.name = name
-    participant.email ="thevoid@meeting.com"
+    val participant = Participant(name, "thevoid@meeting.com")
+
+
 
     meeting.addParticipant(participant)
 
