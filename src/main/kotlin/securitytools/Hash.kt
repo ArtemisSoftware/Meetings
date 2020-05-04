@@ -7,11 +7,6 @@ import java.util.*
 
 class Hash(outputStrategy: OutputStrategy) : SecurityBase(outputStrategy) {
 
-    private val algorithm: String by argument()
-    private val fileName: String by argument()
-    private val destFileName: String by argument()
-    private val provider: String  by argument()
-
 
     private val logger by logger()
 
@@ -46,7 +41,7 @@ class Hash(outputStrategy: OutputStrategy) : SecurityBase(outputStrategy) {
     }
 
     private fun digestData(md: MessageDigest, input: InputStream): ByteArray {
-        val bytesToHash = input.readBytes()
+        val bytesToHash = readBytes(input)
         md.update(bytesToHash)
         return md.digest()
     }

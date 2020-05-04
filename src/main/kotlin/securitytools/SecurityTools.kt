@@ -21,7 +21,9 @@ fun main(args: Array<String>) {
 
             "providers" -> Providers.Help().help()
 
-            "hash" ->Hash.Help().help()
+            "hash" -> Hash.Help().help()
+
+            "sign" -> Hash.Help().help()
 
         }
         return
@@ -129,6 +131,7 @@ fun main(args: Array<String>) {
         }
 
         "sign" -> {
+            Sign(ConsoleOutputStrategy()).run()
         }
 
         "providers" -> {
