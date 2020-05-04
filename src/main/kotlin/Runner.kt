@@ -3,9 +3,14 @@ fun main(){
 
     val meeting = Meeting()
 
+
     println("Created: $meeting")
 
-    meeting.addParticipant("The void")
+    val participant = Participant()
+    participant.name = "The void"
+    participant.email ="thevoid@meeting.com"
+
+    meeting.addParticipant(participant)
 
 
    // meeting.

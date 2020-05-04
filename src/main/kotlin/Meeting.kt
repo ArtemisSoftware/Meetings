@@ -1,20 +1,29 @@
 
 class Meeting {
 
-    internal val logger = Logger()
+    private val logger = Logger()
 
-    fun addParticipant(name : String){
+    val meetingName: String = ""
 
-        if(verifyParticipant(name) == true) {
-            println("Added: $name")
+    fun addParticipant(participant : Participant){
+
+        if(verifyParticipant(participant) == true) {
+            println("Added: ${participant.name}")
         }
     }
 
 
-    private fun verifyParticipant(name : String) : Boolean {
+    private fun verifyParticipant(participant : Participant) : Boolean {
         println("Try to verify")
         return true
     }
 
+
+}
+
+class Participant{
+
+    var name = ""
+    var email = ""
 
 }
