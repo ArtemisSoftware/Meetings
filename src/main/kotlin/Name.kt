@@ -1,3 +1,5 @@
+package com.artemisSoftware
+
 class Name(val name : String) {
 
     init {

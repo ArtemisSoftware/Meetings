@@ -1,3 +1,5 @@
+package com.artemisSoftware
+
 class Participant(val name: Name, val email: String) {
 
 
