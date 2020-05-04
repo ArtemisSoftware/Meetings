@@ -1,4 +1,4 @@
-package com.artemisSoftware
+package com.artemisSoftware.meetings
 
 import java.nio.file.Path
 
@@ -9,7 +9,7 @@ interface Message{
 }
 
 
-class FileLogger(val file: Path) : Logger, Message{
+class FileLogger(val file: Path) : Logger, Message {
 
         override fun debug(msg: String) {
         }
@@ -23,7 +23,7 @@ class FileLogger(val file: Path) : Logger, Message{
         }
 }
 
-class ConsoleLogger(val file: Path) : Logger{
+class ConsoleLogger(val file: Path) : Logger {
 
         override fun debug(msg: String) {
         }

@@ -1,4 +1,4 @@
-package com.artemisSoftware
+package com.artemisSoftware.meetings
 
 class Participant(val name: Name, val email: String) {
 

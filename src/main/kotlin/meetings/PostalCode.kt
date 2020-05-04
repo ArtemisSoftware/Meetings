@@ -1,6 +1,5 @@
-package com.artemisSoftware
+package com.artemisSoftware.meetings
 
-import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 abstract class PostalCode(val postCode: String) {

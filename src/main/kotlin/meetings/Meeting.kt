@@ -1,6 +1,4 @@
-package com.artemisSoftware
-import java.nio.file.Path
-import java.nio.file.Paths
+package com.artemisSoftware.meetings
 
 open class Meeting (val meetingName: String, open val location: Location, val logger : Logger){
 
