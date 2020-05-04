@@ -1,5 +1,4 @@
-package com.rsk
+package com.artemisSoftware
 
-import Location
 
 class Room(val roomName: String) : Location()

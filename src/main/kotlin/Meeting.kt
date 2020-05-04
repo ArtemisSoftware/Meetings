@@ -1,13 +1,17 @@
-import com.rsk.Room
+package com.artemisSoftware
+import Logger
+import java.nio.file.Path
+import java.nio.file.Paths
 
-open class Meeting (val meetingName: String, open val location: Location){
+open class Meeting (val meetingName: String, open val location: Location, val logger : Logger){
 
-    private val logger = Logger()
 
     open val locationName = ""
 
 
     fun addParticipant(participant : Participant){
+
+        //logger.debug("Participant added")
 
         if(verifyParticipant(participant) == true) {
             println("Added: ${participant.participantName}")
@@ -26,8 +30,8 @@ open class Meeting (val meetingName: String, open val location: Location){
     }
 }
 
-class PersonalReview(meetingName: String, val employee: Participant, reviewers: List<Participant>, override val location : Room)
-    : Meeting(meetingName, location){
+class PersonalReview(meetingName: String, val employee: Participant, reviewers: List<Participant>, override val location : Room, logger : Logger)
+    : Meeting(meetingName, location, logger){
 
 
     override val locationName: String
