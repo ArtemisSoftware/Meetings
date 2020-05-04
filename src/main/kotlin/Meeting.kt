@@ -1,8 +1,9 @@
 
-class Meeting (val meetingName: String, val location: Location = Location("")){
+open class Meeting (val meetingName: String, open val location: Location = Location()){
 
     private val logger = Logger()
 
+    open val locationName = ""
 
 
     fun addParticipant(participant : Participant){
@@ -17,11 +18,28 @@ class Meeting (val meetingName: String, val location: Location = Location("")){
         println("Try to verify")
         return true
     }
+
+
+    protected open fun verifyMeeting() {
+        println("Meeting: verify meeting")
+    }
 }
 
+class PersonalReview(meetingName: String, val employee: Participant, reviewers: List<Participant>, override val location : Room)
+    : Meeting(meetingName, location){
 
-class Location (val address : String){
+
+    override val locationName: String
+        get() = location.roomName
 
 
+    fun closeReview(){
+        println("Review ended")
+        verifyMeeting()
+    }
 
+    override fun verifyMeeting() {
+        println("PersonalReview: verify meeting")
+        super.verifyMeeting()
+    }
 }
