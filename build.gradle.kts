@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.3.71"
+    kotlin("jvm") version "1.3.60"/*tive que baixar da versao 71 para a serializacao funcionar!!*/
     id("org.jetbrains.kotlin.plugin.serialization") version "1.3.60"
 }
 
