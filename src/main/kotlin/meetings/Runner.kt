@@ -22,10 +22,20 @@ fun main(){
 
     println("Created Meeting: $meeting with name ${meeting.meetingName} and  at ${meeting.locationName}")
 
-    val name = Name("The void")
-    val participant = Participant(name, "thevoid@meeting.com")
+    var name = Name("The void")
+    var participant = Participant(name, "thevoid@meeting.com")
     meeting.addParticipant(participant)
 
+    name = Name("The darkness")
+    participant = Participant(name, "thedarkness@meeting.com")
+    meeting.addParticipant(participant)
+
+
+    println("------Participants-------")
+    meeting.participants.forEach{
+        println(it.name)
+    }
+    println("-------------------------")
 
     println("")
     val review = PersonalReview(

@@ -1,5 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.3.71"
+    kotlin("jvm") version "1.3.60"/*tive que baixar da versao 71 para a serializacao funcionar!!*/
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.3.60"
 }
 
 group = "org.example"
@@ -15,6 +16,7 @@ dependencies {
 
     implementation ("org.jetbrains.kotlin:kotlin-reflect:1.3.71")
     implementation ("log4j:log4j:1.2.17")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0")
     //implementation (kotlin("log4j:log4j:1.2.17""))
 }
 
