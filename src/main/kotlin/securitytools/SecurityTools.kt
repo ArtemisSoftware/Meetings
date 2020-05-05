@@ -19,11 +19,11 @@ fun main(args: Array<String>) {
         when (helpon) {
             // help on each part
 
-            "providers" -> Providers.Help().help()
+            "providers" -> Providers.help()
 
-            "hash" -> Hash.Help().help()
+            "hash" -> Hash.help()
 
-            "sign" -> Hash.Help().help()
+            "sign" -> Sign.help()
 
         }
         return

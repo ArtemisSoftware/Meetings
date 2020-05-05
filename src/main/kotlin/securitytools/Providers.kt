@@ -12,7 +12,7 @@ class Providers(outputStrategy : OutputStrategy) : SecurityBase(outputStrategy) 
 
     private val filter: String by argument()
 
-    class Help {
+    companion object Help {
         fun help() {
             println("providers: java SecurityToolsKt  [-op 'providers']  [-f filename]  [-d destfilename] [-p provider] [-a algorithm] [-o] [-encode]")
         }

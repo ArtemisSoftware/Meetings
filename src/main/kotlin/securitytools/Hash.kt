@@ -11,7 +11,7 @@ class Hash(outputStrategy: OutputStrategy) : SecurityBase(outputStrategy) {
     private val logger by logger()
 
 
-    class Help {
+    companion object Help {
         fun help() {
             println("usage: java Hash -op 'hash' [-f filename]  [-d destfilename] [-p provider] [-a algorithm] [-o] [-encode]")
             println("\tf filename\t: read input data from filename")
