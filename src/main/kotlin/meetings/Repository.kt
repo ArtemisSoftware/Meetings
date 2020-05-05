@@ -2,8 +2,6 @@ package com.artemisSoftware.meetings
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import kotlinx.serialization.json.JsonDecodingException
-import kotlinx.serialization.list
 import java.io.File
 
 //interface IMeetingRepository {
@@ -24,18 +22,14 @@ interface IRepository<T> {
 
 interface IMeetingRepository : IRepository<MeetingEntity>
 
-abstract class FileSystemRepository<T>(val serializer: IJsonSerializer<T>, val filename: String = "database.json") : IRepository<T> {
+abstract class FileSystemRepository<T : Entity>(val serializer: IJsonSerializer<T>, val filename: String = "database.json") : IRepository<T> {
     init {
         val file = File(filename)
         if(!file.isFile) file.createNewFile()
         println(file.absolutePath)
     }
-}
 
-class MeetingFileSystemRepository(serializer: IJsonSerializer<MeetingEntity>) : FileSystemRepository<MeetingEntity>(serializer), IMeetingRepository {
-    private val json = Json(JsonConfiguration.Default)
-
-    private fun meetings(): List<MeetingEntity> {
+    private fun loadEntities(): List<T> {
 
         // open file
         val data = File(filename).readText()
@@ -45,57 +39,66 @@ class MeetingFileSystemRepository(serializer: IJsonSerializer<MeetingEntity>) : 
     }
 
 
-    override fun get(): List<MeetingEntity> {
-        return meetings()
+    override fun get(): List<T> {
+        return loadEntities()
     }
 
 
-    override fun get(id: Int): MeetingEntity {
-        val meetings = meetings()
-        return meetings.first { it.id == id }
+    override fun get(id: Int): T {
+        val entity = loadEntities()
+        return entity.first { it.id == id }
     }
 
-    override fun create(entity: MeetingEntity): MeetingEntity {
-        val meetings = meetings()
-        val mutableMeetings = meetings.toMutableList()
-        val newEntity = MeetingEntity(id = meetings.size + 1, location = entity.location,meetingName = entity.meetingName, participants = entity.participants)
-        mutableMeetings.add(newEntity)
+    override fun create(entity: T): T {
+        val entities = loadEntities()
+        val mutableEntities = entities.toMutableList()
+        val newEntity = copyEntity(entity, entities.size + 1)
+        mutableEntities.add(newEntity)
 
         // serialize and save
-        saveJsonMeetings(mutableMeetings)
+        saveEntities(mutableEntities)
 
         // add a new one
         return entity
     }
 
-    private fun saveJsonMeetings(mutableMeetings: MutableList<MeetingEntity>) {
+    private fun saveEntities(mutableMeetings: MutableList<T>) {
         val jsonData = serializer.write(mutableMeetings)
 
         File(filename).writeText(jsonData)
     }
 
-    override fun update(entity: MeetingEntity): Boolean {
-        val meetings = meetings()
-        val filteredMeetings = meetings.filter { it.id != entity.id }.toMutableList()
+    override fun update(entity: T): Boolean {
+        val entities = loadEntities()
+        val filteredMeetings = entities.filter { it.id != entity.id }.toMutableList()
         filteredMeetings.add(entity)
 
-        saveJsonMeetings(filteredMeetings)
+        saveEntities(filteredMeetings)
 
         return true
     }
 
     override fun delete(id: Int): Boolean {
-        val meetings = meetings()
-        val filteredMeetings = meetings.filter { it.id != id }.toMutableList()
+        val entities = loadEntities()
+        val filteredMeetings = entities.filter { it.id != id }.toMutableList()
 
-        saveJsonMeetings(filteredMeetings)
+        saveEntities(filteredMeetings)
 
         return true
     }
 
+    abstract fun copyEntity(entity: T, newId: Int) : T
+
 }
 
+class MeetingFileSystemRepository(serializer: IJsonSerializer<MeetingEntity>) : FileSystemRepository<MeetingEntity>(serializer), IMeetingRepository {
+    private val json = Json(JsonConfiguration.Default)
 
+    override fun copyEntity(entity: MeetingEntity, newId: Int): MeetingEntity {
+        return MeetingEntity(id = newId, location = entity.location,meetingName = entity.meetingName, participants = entity.participants)
+    }
+
+}
 
 
 
